@@ -24,22 +24,35 @@ namespace assignment_test
 
         private void button2_Click(object sender, EventArgs e)
         {
-            double r = double.Parse(textBox1.Text);
-            double ans = 4.0 / 3.0 * Math.PI * r * r * r;
-            label1.Text = ans.ToString("0.00");
+            try
+            {
+                double r = double.Parse(textBox2.Text);
+                double ans = 4.0 / 3.0 * Math.PI * r * r * r;
+                label1.Text = ans.ToString("0.00");
+            }
+            catch
+            {
+                label1.Text = ("0.00");
+            }
+
         }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void button1_Click(object sender, EventArgs e)
-           {
-            double r = double.Parse(textBox2.Text);
-            double r = double.Parse(textBox3.Text);
-            double ans = Math.PI * r * r * H / 3.0;
-            label2.Text = ans.ToString("0.00");
+        {
+            try
+            {
+                double r = Convert.ToDouble(textBox1.Text);
+                double H = Convert.ToDouble(textBox3.Text);
+
+                double V = Math.PI * r * r * H / 3.0;
+                label2.Text = "Volume = " + V.ToString("0.00");
+            }
+            catch
+            {
+                label2.Text = "Volume = ";
+            }
+            
         }
+        
     }
 }
